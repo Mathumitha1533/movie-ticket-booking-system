@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard — Movie Ticket Booking System</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/admin.css">
+  <link rel="stylesheet" href="../css/i18n.css">
+  <link rel="stylesheet" href="../css/polish.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo">🎬 MovieTix <span class="admin-tag">ADMIN</span></div>
+    <nav class="nav">
+      <span class="user-greeting" id="adminGreeting"></span>
+      <a href="#" id="adminLogoutLink">Logout</a>
+    </nav>
+  </header>
+
+  <main class="admin-main">
+    <div class="admin-header">
+      <div><h1>Dashboard 📊</h1><p>Overview of your cinema's performance</p></div>
+    </div>
+
+    <div class="admin-tabs">
+      <a href="admin-dashboard.html" class="admin-tab active">📊 Dashboard</a>
+      <a href="admin-movies.html" class="admin-tab">🎬 Movies</a>
+      <a href="admin-theaters.html" class="admin-tab">🏢 Theaters</a>
+      <a href="admin-bookings.html" class="admin-tab">🎟️ Bookings</a>
+      <a href="admin-users.html" class="admin-tab">👥 Users</a>
+    </div>
+
+    <div class="admin-stats-grid" id="statsGrid">
+      <div class="admin-stat-card"><div class="admin-stat-icon">🎬</div><div class="admin-stat-value" id="statMovies">0</div><div class="admin-stat-label">Total Movies</div></div>
+      <div class="admin-stat-card blue"><div class="admin-stat-icon">👥</div><div class="admin-stat-value" id="statUsers">0</div><div class="admin-stat-label">Registered Users</div></div>
+      <div class="admin-stat-card green"><div class="admin-stat-icon">🎟️</div><div class="admin-stat-value" id="statBookings">0</div><div class="admin-stat-label">Total Bookings</div></div>
+      <div class="admin-stat-card orange"><div class="admin-stat-icon">💰</div><div class="admin-stat-value" id="statRevenue">₹0</div><div class="admin-stat-label">Total Revenue</div></div>
+      <div class="admin-stat-card purple"><div class="admin-stat-icon">💺</div><div class="admin-stat-value" id="statTickets">0</div><div class="admin-stat-label">Tickets Sold</div></div>
+      <div class="admin-stat-card"><div class="admin-stat-icon">⭐</div><div class="admin-stat-value" id="statReviews">0</div><div class="admin-stat-label">Total Reviews</div></div>
+    </div>
+
+    <div class="admin-table-container">
+      <div class="admin-table-header">
+        <h2>Recent Bookings</h2>
+        <a href="admin-bookings.html" class="admin-btn secondary">View All →</a>
+      </div>
+      <div id="recentBookingsContainer">
+        <table class="admin-table" id="recentBookingsTable">
+          <thead>
+            <tr>
+              <th>Booking ID</th>
+              <th>Customer</th>
+              <th>Movie</th>
+              <th>Seats</th>
+              <!-- NEW: Extras Column -->
+              <th>Extras</th>
+              <th>Amount</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="recentBookingsBody"></tbody>
+        </table>
+        <div id="noRecentBookings" class="admin-empty" style="display:none;"><div class="admin-empty-icon">🎟️</div><p>No bookings yet.</p></div>
+      </div>
+    </div>
+
+    <div class="admin-table-container">
+      <div class="admin-table-header"><h2>Top Rated Movies</h2></div>
+      <div id="topMoviesContainer">
+        <table class="admin-table" id="topMoviesTable">
+          <thead><tr><th>Movie</th><th>Genre</th><th>Avg Rating</th><th>Reviews</th></tr></thead>
+          <tbody id="topMoviesBody"></tbody>
+        </table>
+        <div id="noTopMovies" class="admin-empty" style="display:none;"><div class="admin-empty-icon">⭐</div><p>No reviews yet.</p></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer"><p>&copy; 2026 Movie Ticket Booking System. All rights reserved.</p></footer>
+
+  <script src="../js/movieData.js"></script>
+  <script src="../js/admin-guard.js"></script>
+  <script src="../js/admin-dashboard.js"></script>
+  <script src="../js/polish.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Bookings — Admin Panel</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/admin.css">
+  <link rel="stylesheet" href="../css/i18n.css">
+  <link rel="stylesheet" href="../css/polish.css">
+</head>
+<body>
+  <header class="header"><div class="logo">🎬 MovieTix <span class="admin-tag">ADMIN</span></div><nav class="nav"><span class="user-greeting" id="adminGreeting"></span><a href="#" id="adminLogoutLink">Logout</a></nav></header>
+  <main class="admin-main">
+    <div class="admin-header"><div><h1>All Bookings 🎟️</h1><p>View and manage every booking in the system</p></div></div>
+    <div class="admin-tabs">
+      <a href="admin-dashboard.html" class="admin-tab">📊 Dashboard</a><a href="admin-movies.html" class="admin-tab">🎬 Movies</a>
+      <a href="admin-theaters.html" class="admin-tab">🏢 Theaters</a><a href="admin-bookings.html" class="admin-tab active">🎟️ Bookings</a>
+      <a href="admin-users.html" class="admin-tab">👥 Users</a>
+    </div>
+    <div class="admin-stats-grid">
+      <div class="admin-stat-card"><div class="admin-stat-icon">🎟️</div><div class="admin-stat-value" id="bkTotal">0</div><div class="admin-stat-label">Total Bookings</div></div>
+      <div class="admin-stat-card green"><div class="admin-stat-icon">✅</div><div class="admin-stat-value" id="bkConfirmed">0</div><div class="admin-stat-label">Confirmed</div></div>
+      <div class="admin-stat-card blue"><div class="admin-stat-icon">🎬</div><div class="admin-stat-value" id="bkCompleted">0</div><div class="admin-stat-label">Completed</div></div>
+      <div class="admin-stat-card orange"><div class="admin-stat-icon">❌</div><div class="admin-stat-value" id="bkCancelled">0</div><div class="admin-stat-label">Cancelled</div></div>
+    </div>
+    <div class="admin-table-container">
+      <div class="admin-table-header">
+        <h2>All Bookings</h2>
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+          <input type="text" id="bookingSearch" placeholder="🔍 Search by ID, user, or movie..." style="padding: 0.6rem 1rem; border: 1px solid #ddd; border-radius: 8px; font-size: 0.9rem; min-width: 240px;">
+          <select id="statusFilter" style="padding: 0.6rem 1rem; border: 1px solid #ddd; border-radius: 8px; font-size: 0.9rem; font-family:inherit; background:white;"><option value="">All Status</option><option value="Confirmed">Confirmed</option><option value="Completed">Completed</option><option value="Cancelled">Cancelled</option></select>
+        </div>
+      </div>
+      <div style="overflow-x:auto;">
+        <table class="admin-table" id="bookingsTable">
+          <thead><tr><th>Booking ID</th><th>Customer</th><th>Movie</th><th>Show</th><th>Seats</th><th>Amount</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody id="bookingsTableBody"></tbody>
+        </table>
+      </div>
+      <div id="noBookings" class="admin-empty" style="display:none;"><div class="admin-empty-icon">🎟️</div><p>No bookings found.</p></div>
+    </div>
+  </main>
+  <footer class="footer"><p>&copy; 2026 Movie Ticket Booking System. All rights reserved.</p></footer>
+  <script src="../js/admin-guard.js"></script>
+  <script src="../js/admin-bookings.js"></script>
+  <script src="../js/polish.js"></script>
+</body>
+</html>

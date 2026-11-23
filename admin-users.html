@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registered Users — Admin Panel</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/admin.css">
+  <link rel="stylesheet" href="../css/i18n.css">
+  <link rel="stylesheet" href="../css/polish.css">
+</head>
+<body>
+  <header class="header"><div class="logo">🎬 MovieTix <span class="admin-tag">ADMIN</span></div><nav class="nav"><span class="user-greeting" id="adminGreeting"></span><a href="#" id="adminLogoutLink">Logout</a></nav></header>
+  <main class="admin-main">
+    <div class="admin-header"><div><h1>Registered Users 👥</h1><p>View all customers registered in the system</p></div></div>
+    <div class="admin-tabs">
+      <a href="admin-dashboard.html" class="admin-tab">📊 Dashboard</a><a href="admin-movies.html" class="admin-tab">🎬 Movies</a>
+      <a href="admin-theaters.html" class="admin-tab">🏢 Theaters</a><a href="admin-bookings.html" class="admin-tab">🎟️ Bookings</a>
+      <a href="admin-users.html" class="admin-tab active">👥 Users</a>
+    </div>
+    <div class="admin-stats-grid">
+      <div class="admin-stat-card blue"><div class="admin-stat-icon">👥</div><div class="admin-stat-value" id="usrTotal">0</div><div class="admin-stat-label">Total Users</div></div>
+      <div class="admin-stat-card green"><div class="admin-stat-icon">📅</div><div class="admin-stat-value" id="usrToday">0</div><div class="admin-stat-label">Joined Today</div></div>
+      <div class="admin-stat-card orange"><div class="admin-stat-icon">🎬</div><div class="admin-stat-value" id="usrWithBookings">0</div><div class="admin-stat-label">Users With Bookings</div></div>
+      <div class="admin-stat-card purple"><div class="admin-stat-icon">💰</div><div class="admin-stat-value" id="usrAvgSpend">₹0</div><div class="admin-stat-label">Avg. Spend / User</div></div>
+    </div>
+    <div class="admin-table-container">
+      <div class="admin-table-header"><h2>All Users</h2><input type="text" id="userSearch" placeholder="🔍 Search by name or email..." style="padding: 0.6rem 1rem; border: 1px solid #ddd; border-radius: 8px; font-size: 0.9rem; min-width: 240px;"></div>
+      <div style="overflow-x:auto;">
+        <table class="admin-table" id="usersTable">
+          <thead><tr><th>User</th><th>Email</th><th>Phone</th><th>Joined</th><th>Bookings</th><th>Total Spent</th><th>Actions</th></tr></thead>
+          <tbody id="usersTableBody"></tbody>
+        </table>
+      </div>
+      <div id="noUsers" class="admin-empty" style="display:none;"><div class="admin-empty-icon">👥</div><p>No users registered yet.</p></div>
+    </div>
+  </main>
+  <div id="userModal" class="admin-modal" style="display:none;">
+    <div class="admin-modal-box"><button class="admin-modal-close" id="userModalClose">✕</button><div id="userModalContent"></div></div>
+  </div>
+  <footer class="footer"><p>&copy; 2026 Movie Ticket Booking System. All rights reserved.</p></footer>
+  <script src="../js/admin-guard.js"></script>
+  <script src="../js/admin-users.js"></script>
+  <script src="../js/polish.js"></script>
+</body>
+</html>

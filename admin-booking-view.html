@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Details — Admin Panel</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/admin.css">
+  <link rel="stylesheet" href="../css/booking-confirmation.css">
+  <link rel="stylesheet" href="../css/i18n.css">
+  <link rel="stylesheet" href="../css/polish.css">
+</head>
+<body>
+  <header class="header"><div class="logo">🎬 MovieTix <span class="admin-tag">ADMIN</span></div><nav class="nav"><span class="user-greeting" id="adminGreeting"></span><a href="#" id="adminLogoutLink">Logout</a></nav></header>
+  <main class="admin-main">
+    <a href="admin-bookings.html" class="back-link">← Back to All Bookings</a>
+    <div id="bookingContent">
+      <div class="admin-header" style="margin-bottom:1.5rem;"><div><h1>Booking Details 📄</h1><p>Read-only admin view</p></div><span id="adminStatusBadge" class="badge badge-green">Confirmed</span></div>
+      <div class="admin-table-container" style="padding:1.5rem; margin-bottom:1.5rem;">
+        <h2 style="font-size:1.05rem; color:#1a1a2e; margin-bottom:1rem;">👤 Customer Information</h2>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1rem;">
+          <div><div style="font-size:0.75rem; color:#999; text-transform:uppercase; font-weight:700;">Name</div><div id="custName" style="font-weight:700; color:#1a1a2e;">—</div></div>
+          <div><div style="font-size:0.75rem; color:#999; text-transform:uppercase; font-weight:700;">Email</div><div id="custEmail" style="font-weight:600; color:#1a1a2e; word-break:break-all;">—</div></div>
+          <div><div style="font-size:0.75rem; color:#999; text-transform:uppercase; font-weight:700;">Booking ID</div><div id="custBookingId" style="font-family:'Courier New',monospace; color:#e94560; font-weight:800;">—</div></div>
+        </div>
+      </div>
+      <div class="ticket">
+        <div class="ticket-left">
+          <div class="ticket-header"><div class="ticket-logo">🎬 MovieTix</div><div class="ticket-status" id="ticketStatusText">CONFIRMED</div></div>
+          <div class="ticket-movie"><h2 id="ticketMovie">Movie Title</h2><p id="ticketLanguage" class="ticket-subtitle">Language • Genre</p></div>
+          <div class="ticket-info-grid">
+            <div class="info-block"><span class="info-label">📅 Date</span><span class="info-value" id="ticketDate">-</span></div>
+            <div class="info-block"><span class="info-label">🕐 Time</span><span class="info-value" id="ticketTime">-</span></div>
+            <div class="info-block"><span class="info-label">🏢 Theater</span><span class="info-value" id="ticketTheater">-</span></div>
+            <div class="info-block"><span class="info-label">🎥 Screen</span><span class="info-value" id="ticketScreen">-</span></div>
+            <div class="info-block"><span class="info-label">💺 Seats</span><span class="info-value" id="ticketSeats">-</span></div>
+            <div class="info-block"><span class="info-label">💰 Total Paid</span><span class="info-value" id="ticketTotal">-</span></div>
+          </div>
+          <div class="ticket-footer">
+            <div><span class="info-label">Booking ID</span><span class="booking-id" id="ticketBookingId">-</span></div>
+            <div><span class="info-label">Payment Method</span><span class="info-value" id="ticketPaymentMethod">-</span></div>
+          </div>
+          <div id="refundBox" style="display:none; margin-top:1rem; padding:0.8rem 1rem; background:#fff8e1; border-left:4px solid #ff9800; border-radius:8px;">
+            <div style="font-size:0.75rem; color:#e65100; font-weight:700; text-transform:uppercase;">Refund Issued</div>
+            <div style="font-size:1.1rem; font-weight:800; color:#e65100;">₹<span id="refundAmt">0</span> (<span id="refundPct">0</span>%)</div>
+            <div id="refundBy" style="font-size:0.8rem; color:#999; margin-top:0.3rem;"></div>
+          </div>
+        </div>
+        <div class="ticket-right"><p class="qr-label">Ticket QR</p><img id="qrImage" src="" alt="QR Code" class="qr-image"><p class="qr-hint">Customer's entry QR code</p></div>
+      </div>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-top:2rem;">
+        <a href="admin-bookings.html" class="admin-btn secondary">← Back to Bookings</a>
+        <button id="adminCancelBtn" class="admin-btn" style="background:#c62828;">✕ Cancel This Booking</button>
+      </div>
+    </div>
+    <div id="errorContent" class="admin-empty" style="display:none;"><div class="admin-empty-icon">❌</div><h2>Booking Not Found</h2><p>This booking could not be located.</p><a href="admin-bookings.html" class="admin-btn">Back to All Bookings</a></div>
+  </main>
+  <footer class="footer"><p>&copy; 2026 Movie Ticket Booking System. All rights reserved.</p></footer>
+  <script src="../js/admin-guard.js"></script>
+  <script src="../js/admin-booking-view.js"></script>
+  <script src="../js/polish.js"></script>
+</body>
+</html>

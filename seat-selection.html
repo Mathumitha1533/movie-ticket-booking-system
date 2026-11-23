@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select Seats — Movie Ticket Booking System</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/seat-selection.css">
+  <link rel="stylesheet" href="../css/i18n.css">
+  <link rel="stylesheet" href="../css/polish.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo">🎬 MovieTix</div>
+    <nav class="nav">
+      <a href="../index.html" data-i18n="common.home">Home</a>
+      <a href="movies.html" data-i18n="common.movies">Movies</a>
+      <a href="login.html" id="loginLink" data-i18n="common.login">Login</a>
+      <a href="register.html" id="registerLink" data-i18n="common.register">Register</a>
+      <a href="#" id="logoutLink" style="display:none;" data-i18n="common.logout">Logout</a>
+      <span id="userGreeting" class="user-greeting"></span>
+    </nav>
+  </header>
+
+  <main class="seat-main">
+    <div class="show-header">
+      <h1 id="showTitle">Movie Title</h1>
+      <p id="showDetails">Theater • Screen • Time</p>
+      <a href="movie-details.html" id="backLink" class="back-link" data-i18n="details.backToMovies">← Back to Showtimes</a>
+    </div>
+
+    <div class="recommend-banner">
+      <div class="recommend-icon">🎯</div>
+      <div class="recommend-content">
+        <div class="recommend-title">
+          Smart Recommendation · <span id="desiredCountDisplay">1</span> tickets
+          <button id="changeCountBtn" class="change-count-btn">Change</button>
+        </div>
+        <div class="recommend-text" id="recommendBannerText">Finding best seats for you...</div>
+      </div>
+      <div class="recommend-actions">
+        <button id="selectRecommendedBtn" class="recommend-btn primary" data-i18n="seat.selectBest">✨ Select Best Seats</button>
+        <button id="refreshRecommendedBtn" class="recommend-btn secondary" title="Refresh">↻</button>
+      </div>
+    </div>
+
+    <div class="screen-container">
+      <div class="screen-curve" data-i18n="seat.screen">SCREEN THIS WAY</div>
+    </div>
+
+    <div class="seat-grid-container">
+      <div id="seatGrid" class="seat-grid"></div>
+    </div>
+
+    <div id="groupStatus" class="group-status" style="display:none;"></div>
+
+    <div class="legend">
+      <div class="legend-item"><span class="seat-sample available"></span> <span data-i18n="seat.available">Available</span></div>
+      <div class="legend-item"><span class="seat-sample recommended"></span> <span data-i18n="seat.recommended">Recommended</span></div>
+      <div class="legend-item"><span class="seat-sample selected"></span> <span data-i18n="seat.selected">Selected</span></div>
+      <div class="legend-item"><span class="seat-sample booked"></span> <span data-i18n="seat.booked">Booked</span></div>
+    </div>
+
+    <div class="summary-bar">
+      <div class="summary-info">
+        <span id="selectedSeatsText" data-i18n="seat.noSeats">No seats selected</span>
+        <span id="totalPriceText" class="total-price">Total: ₹0</span>
+      </div>
+      <button id="proceedBtn" class="btn-primary" disabled data-i18n="seat.proceed">Proceed to Payment →</button>
+    </div>
+  </main>
+
+  <div id="ticketCountModal" class="ticket-modal-overlay" style="display:none;">
+    <div class="ticket-modal-box">
+      <div class="ticket-modal-icon">🎟️</div>
+      <h2 data-i18n="seat.howMany">How many tickets?</h2>
+      <p class="ticket-modal-sub" data-i18n="seat.recommendSubtitle">We'll recommend the best seats for you</p>
+      <div class="ticket-modal-input-wrap">
+        <button type="button" class="counter-btn" id="counterMinus">−</button>
+        <input type="number" id="ticketCountInput" min="1" max="20" value="1">
+        <button type="button" class="counter-btn" id="counterPlus">+</button>
+      </div>
+      <div class="ticket-modal-actions">
+        <button type="button" id="ticketCancelBtn" class="ticket-modal-cancel" data-i18n="seat.cancel">Cancel</button>
+        <button type="button" id="ticketConfirmBtn" class="ticket-modal-confirm" data-i18n="seat.findBest">Find Best Seats</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p data-i18n="home.footer">&copy; 2026 Movie Ticket Booking System. All rights reserved.</p>
+  </footer>
+
+  <script src="../js/i18n.js"></script>
+  <script src="../js/header.js"></script>
+  <script src="../js/seat-selection.js"></script>
+  <script src="../js/polish.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rate & Review — Movie Ticket Booking System</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/review.css">
+  <link rel="stylesheet" href="../css/i18n.css">
+  <link rel="stylesheet" href="../css/polish.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo">🎬 MovieTix</div>
+    <nav class="nav">
+      <a href="../index.html" data-i18n="common.home">Home</a>
+      <a href="movies.html" data-i18n="common.movies">Movies</a>
+      <a href="login.html" id="loginLink" data-i18n="common.login">Login</a>
+      <a href="register.html" id="registerLink" data-i18n="common.register">Register</a>
+      <a href="#" id="logoutLink" style="display:none;" data-i18n="common.logout">Logout</a>
+      <span id="userGreeting" class="user-greeting"></span>
+    </nav>
+  </header>
+
+  <main class="review-main">
+    <a href="booking-history.html" class="back-link" data-i18n="history.title">← Back to My Bookings</a>
+    
+    <div class="review-card" id="reviewCard">
+      <div class="review-movie-header">
+        <div class="review-poster" id="reviewPoster">🎬</div>
+        <div><h1 id="reviewMovieTitle">Movie Title</h1><p id="reviewMovieMeta">Genre • Language</p></div>
+      </div>
+      <h2 class="review-heading">How was your experience?</h2>
+      
+      <form id="reviewForm">
+        <div class="star-rating" id="starRating">
+          <span class="star" data-value="1">★</span><span class="star" data-value="2">★</span><span class="star" data-value="3">★</span><span class="star" data-value="4">★</span><span class="star" data-value="5">★</span>
+        </div>
+        <p class="rating-label" id="ratingLabel">Tap a star to rate</p>
+
+        <div class="form-group">
+          <label for="reviewText">Your Review (optional)</label>
+          <textarea id="reviewText" rows="5" placeholder="Share your thoughts about the movie..." maxlength="500"></textarea>
+          <span class="char-count" id="charCount">0 / 500</span>
+        </div>
+
+        <button type="submit" class="btn-primary btn-block" id="submitReviewBtn">Submit Review</button>
+        <p id="reviewMessage" class="form-message"></p>
+      </form>
+    </div>
+
+    <div class="already-reviewed" id="alreadyReviewed" style="display:none;">
+      <div class="check-icon">✅</div>
+      <h2>You've already reviewed this movie</h2>
+      <p id="existingReviewInfo"></p>
+      <a href="booking-history.html" class="btn-primary">Back to My Bookings</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p data-i18n="home.footer">&copy; 2026 Movie Ticket Booking System. All rights reserved.</p>
+  </footer>
+
+  <script src="../js/i18n.js"></script>
+  <script src="../js/movieData.js"></script>
+  <script src="../js/header.js"></script>
+  <script src="../js/review.js"></script>
+  <script src="../js/polish.js"></script>
+</body>
+</html>

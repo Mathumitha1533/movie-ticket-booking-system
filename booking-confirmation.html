@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Confirmed — Movie Ticket Booking System</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/booking-confirmation.css">
+  <link rel="stylesheet" href="../css/i18n.css">
+  <link rel="stylesheet" href="../css/polish.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo">🎬 MovieTix</div>
+    <nav class="nav">
+      <a href="../index.html" data-i18n="common.home">Home</a>
+      <a href="movies.html" data-i18n="common.movies">Movies</a>
+      <a href="login.html" id="loginLink" data-i18n="common.login">Login</a>
+      <a href="register.html" id="registerLink" data-i18n="common.register">Register</a>
+      <a href="#" id="logoutLink" style="display:none;" data-i18n="common.logout">Logout</a>
+      <span id="userGreeting" class="user-greeting"></span>
+    </nav>
+  </header>
+
+  <main class="confirmation-main">
+    <div id="confirmationContent">
+      <div class="success-banner">
+        <div class="success-icon">✅</div>
+        <h1 data-i18n="confirm.success">Booking Confirmed!</h1>
+        <p data-i18n="confirm.successMsg">Your tickets have been booked successfully. Enjoy the show! 🍿</p>
+      </div>
+
+      <div class="ticket" id="ticketCard">
+        <div class="ticket-left">
+          <div class="ticket-header">
+            <div class="ticket-logo">🎬 MovieTix</div>
+            <div class="ticket-status">CONFIRMED</div>
+          </div>
+          <div class="ticket-movie">
+            <h2 id="ticketMovie">Movie Title</h2>
+            <p id="ticketLanguage" class="ticket-subtitle">Language • Genre</p>
+          </div>
+          <div class="ticket-info-grid">
+            <div class="info-block"><span class="info-label">📅 Date</span><span class="info-value" id="ticketDate">-</span></div>
+            <div class="info-block"><span class="info-label">🕐 Time</span><span class="info-value" id="ticketTime">-</span></div>
+            <div class="info-block"><span class="info-label">🏢 Theater</span><span class="info-value" id="ticketTheater">-</span></div>
+            <div class="info-block"><span class="info-label">🎥 Screen</span><span class="info-value" id="ticketScreen">-</span></div>
+            <div class="info-block"><span class="info-label">💺 Seats</span><span class="info-value" id="ticketSeats">-</span></div>
+            <div class="info-block"><span class="info-label">💰 Total Paid</span><span class="info-value" id="ticketTotal">-</span></div>
+          </div>
+          
+          <!-- EXTRA: Parking & Snacks on Ticket (Hidden by default) -->
+          <div id="extrasSection" style="display:none; background:#fdfdfd; border:1px dashed #ccc; padding:1rem; border-radius:8px; margin-bottom:1.5rem;">
+            <h4 style="font-size:0.9rem; color:#333; margin-bottom:0.5rem; text-transform:uppercase;">Extras Included</h4>
+            <div id="parkingTicketInfo" style="display:none; font-size:0.9rem; color:#0288d1; font-weight:600; margin-bottom:0.5rem;">
+              🚗 Car Parking Pass (Gate B)
+            </div>
+            <div id="snacksTicketInfo" style="font-size:0.9rem; color:#d84315; font-weight:600;">
+              <!-- Filled by JS -->
+            </div>
+          </div>
+
+          <div class="ticket-footer">
+            <div><span class="info-label">Booking ID</span><span class="booking-id" id="ticketBookingId">-</span></div>
+            <div><span class="info-label">Payment Method</span><span class="info-value" id="ticketPaymentMethod">-</span></div>
+          </div>
+        </div>
+        <div class="ticket-right">
+          <p class="qr-label">Scan at Entry</p>
+          <img id="qrImage" src="" alt="QR Code" class="qr-image" style="background:white;">
+          <p class="qr-hint">Show this QR code at the theater entrance</p>
+        </div>
+      </div>
+
+      <div class="action-buttons">
+        <button onclick="window.print()" class="btn-secondary" data-i18n="confirm.print">🖨️ Print Ticket</button>
+        <a href="movies.html" class="btn-primary" data-i18n="confirm.bookAnother">🎬 Book Another Movie</a>
+      </div>
+    </div>
+
+    <div id="errorContent" style="display:none;" class="error-box">
+      <h2>❌ Booking Not Found</h2>
+      <p>We couldn't find your booking details. Please try booking again.</p>
+      <a href="movies.html" class="btn-primary">Go to Movies</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p data-i18n="home.footer">&copy; 2026 Movie Ticket Booking System. All rights reserved.</p>
+  </footer>
+
+  <script src="../js/i18n.js"></script>
+  <script src="../js/movieData.js"></script>
+  <script src="../js/header.js"></script>
+  <script src="../js/booking-confirmation.js"></script>
+  <script src="../js/polish.js"></script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment — Movie Ticket Booking System</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/payment.css">
+  <link rel="stylesheet" href="../css/i18n.css">
+  <link rel="stylesheet" href="../css/polish.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo">🎬 MovieTix</div>
+    <nav class="nav">
+      <a href="../index.html" data-i18n="common.home">Home</a>
+      <a href="movies.html" data-i18n="common.movies">Movies</a>
+      <a href="login.html" id="loginLink" data-i18n="common.login">Login</a>
+      <a href="register.html" id="registerLink" data-i18n="common.register">Register</a>
+      <a href="#" id="logoutLink" style="display:none;" data-i18n="common.logout">Logout</a>
+      <span id="userGreeting" class="user-greeting"></span>
+    </nav>
+  </header>
+
+  <main class="payment-main">
+    <a href="seat-selection.html" class="back-link">← Back to Seat Selection</a>
+    <h1 class="page-title" data-i18n="payment.title">Complete Your Payment</h1>
+    <p class="page-subtitle" data-i18n="payment.subtitle">Your seats are locked for 5 minutes. Please complete the payment.</p>
+
+    <div class="payment-layout">
+      <div class="summary-stack">
+        <div class="summary-card">
+          <h2 data-i18n="payment.summary">Booking Summary</h2>
+          <div class="summary-item"><span class="label" data-i18n="payment.movie">Movie:</span><span class="value" id="summaryMovie">-</span></div>
+          <div class="summary-item"><span class="label" data-i18n="payment.theater">Theater:</span><span class="value" id="summaryTheater">-</span></div>
+          <div class="summary-item"><span class="label" data-i18n="payment.screenTime">Screen & Time:</span><span class="value" id="summaryScreenTime">-</span></div>
+          <div class="summary-item"><span class="label" data-i18n="payment.seats">Seats:</span><span class="value" id="summarySeats">-</span></div>
+          
+          <!-- Parking & Snacks Summary (Hidden by default) -->
+          <div class="summary-item" id="parkingSummaryRow" style="display:none; color:#0288d1;">
+            <span class="label">🚗 Parking:</span><span class="value">₹100</span>
+          </div>
+          <div class="summary-item" id="snacksSummaryRow" style="display:none; color:#d84315;">
+            <span class="label">🍿 Snacks:</span><span class="value" id="summarySnacks">₹0</span>
+          </div>
+
+          <div class="summary-item subtotal-row"><span class="label" data-i18n="payment.subtotal">Subtotal:</span><span class="value" id="summarySubtotal">₹0</span></div>
+          <div class="summary-item discount-row" id="discountRow" style="display:none;"><span class="label" data-i18n="payment.discount">Discount</span> (<span id="appliedCouponCode">-</span>):<span class="value discount-value" id="summaryDiscount">-₹0</span></div>
+          <div class="summary-item total-row"><span class="label" data-i18n="payment.total">Total Amount:</span><span class="value total-amount" id="summaryTotal">₹0</span></div>
+        </div>
+
+        <div class="coupons-card">
+          <div class="coupons-header">
+            <h3 data-i18n="payment.availableCoupons">🎁 Available Coupons</h3>
+            <p data-i18n="payment.clickToApply">Click any coupon to auto-apply</p>
+          </div>
+          <div class="coupons-list" id="couponsList"></div>
+        </div>
+      </div>
+
+      <div class="payment-card">
+        
+        <!-- OPTIONAL EXTRAS SECTION -->
+        <div class="extras-card" style="background:#f9f9f9; border:1px solid #eee; padding:1.2rem; border-radius:10px; margin-bottom:1.5rem;">
+          <h3 style="font-size:1.1rem; margin-bottom:1rem; color:#1a1a2e;">Add Extras (Optional)</h3>
+          
+          <label style="display:flex; align-items:center; gap:0.8rem; cursor:pointer; margin-bottom:1.2rem;">
+            <input type="checkbox" id="parkingCheckbox" style="width:18px; height:18px; accent-color:#e94560;">
+            <span style="font-weight:600;">🚗 Add Car Parking (₹100)</span>
+          </label>
+
+          <h4 style="font-size:0.95rem; margin-bottom:0.8rem; color:#555;">🍿 Pre-book Snacks</h4>
+          <div class="snacks-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:0.8rem;">
+            <div class="snack-item" style="display:flex; justify-content:space-between; align-items:center; background:white; padding:0.6rem; border-radius:8px; border:1px solid #ddd;">
+              <span style="font-size:0.85rem; font-weight:600;">🍿 Popcorn <br> <span style="color:#e94560; font-size:0.75rem;">₹150</span></span>
+              <input type="number" class="snack-qty" data-name="Popcorn" data-price="150" value="0" min="0" max="5" style="width:45px; padding:0.3rem; border:1px solid #ccc; border-radius:4px; text-align:center;">
+            </div>
+            <div class="snack-item" style="display:flex; justify-content:space-between; align-items:center; background:white; padding:0.6rem; border-radius:8px; border:1px solid #ddd;">
+              <span style="font-size:0.85rem; font-weight:600;">🥤 Coke <br> <span style="color:#e94560; font-size:0.75rem;">₹80</span></span>
+              <input type="number" class="snack-qty" data-name="Coke" data-price="80" value="0" min="0" max="5" style="width:45px; padding:0.3rem; border:1px solid #ccc; border-radius:4px; text-align:center;">
+            </div>
+            <div class="snack-item" style="display:flex; justify-content:space-between; align-items:center; background:white; padding:0.6rem; border-radius:8px; border:1px solid #ddd;">
+              <span style="font-size:0.85rem; font-weight:600;">🌮 Nachos <br> <span style="color:#e94560; font-size:0.75rem;">₹120</span></span>
+              <input type="number" class="snack-qty" data-name="Nachos" data-price="120" value="0" min="0" max="5" style="width:45px; padding:0.3rem; border:1px solid #ccc; border-radius:4px; text-align:center;">
+            </div>
+            <div class="snack-item" style="display:flex; justify-content:space-between; align-items:center; background:white; padding:0.6rem; border-radius:8px; border:1px solid #ddd;">
+              <span style="font-size:0.85rem; font-weight:600;">🍔 Burger <br> <span style="color:#e94560; font-size:0.75rem;">₹200</span></span>
+              <input type="number" class="snack-qty" data-name="Burger" data-price="200" value="0" min="0" max="5" style="width:45px; padding:0.3rem; border:1px solid #ccc; border-radius:4px; text-align:center;">
+            </div>
+          </div>
+        </div>
+        <!-- END EXTRAS SECTION -->
+
+        <h2 data-i18n="payment.method">Payment Method</h2>
+        <div class="coupon-input-section">
+          <label for="couponInput" data-i18n="payment.haveCoupon">Have a coupon code?</label>
+          <div class="coupon-input-row">
+            <input type="text" id="couponInput" placeholder="Enter code e.g. FIRST50" data-i18n-placeholder="payment.enterCode" maxlength="20">
+            <button type="button" id="applyCouponBtn" class="coupon-apply-btn" data-i18n="payment.apply">Apply</button>
+          </div>
+          <p id="couponMessage" class="coupon-message"></p>
+        </div>
+
+        <form id="paymentForm">
+          <div class="payment-methods">
+            <label class="method-option"><input type="radio" name="paymentMethod" value="card" checked><span data-i18n="payment.card">💳 Credit / Debit Card</span></label>
+            <label class="method-option"><input type="radio" name="paymentMethod" value="upi"><span data-i18n="payment.upi">📱 UPI</span></label>
+            <label class="method-option"><input type="radio" name="paymentMethod" value="netbanking"><span data-i18n="payment.netbanking">🏦 Net Banking</span></label>
+          </div>
+
+          <div id="cardDetails" class="payment-fields">
+            <div class="form-group"><label for="cardNumber" data-i18n="payment.cardNumber">Card Number</label><input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19"></div>
+            <div class="form-row">
+              <div class="form-group"><label for="expiry" data-i18n="payment.expiry">Expiry Date</label><input type="text" id="expiry" placeholder="MM/YY" maxlength="5"></div>
+              <div class="form-group"><label for="cvv" data-i18n="payment.cvv">CVV</label><input type="password" id="cvv" placeholder="123" maxlength="3"></div>
+            </div>
+            <div class="form-group"><label for="cardName" data-i18n="payment.cardName">Name on Card</label><input type="text" id="cardName" placeholder="John Doe"></div>
+          </div>
+
+          <div id="upiDetails" class="payment-fields" style="display:none;">
+            <div class="form-group"><label for="upiId" data-i18n="payment.upiId">UPI ID</label><input type="text" id="upiId" placeholder="yourname@upi"></div>
+          </div>
+
+          <div id="netbankingDetails" class="payment-fields" style="display:none;">
+            <div class="form-group"><label for="bankSelect" data-i18n="payment.bank">Select Bank</label><select id="bankSelect"><option value="">Choose your bank...</option><option value="sbi">State Bank of India</option><option value="hdfc">HDFC Bank</option><option value="icici">ICICI Bank</option><option value="axis">Axis Bank</option></select></div>
+          </div>
+
+          <button type="submit" id="payBtn" class="btn-primary btn-block" data-i18n="payment.payNow">Pay Now</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p data-i18n="home.footer">&copy; 2026 Movie Ticket Booking System. All rights reserved.</p>
+  </footer>
+
+  <script src="../js/i18n.js"></script>
+  <script src="../js/header.js"></script>
+  <script src="../js/payment.js"></script>
+  <script src="../js/polish.js"></script>
+</body>
+</html>

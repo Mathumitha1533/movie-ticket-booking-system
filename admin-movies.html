@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Movies — Admin Panel</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/admin.css">
+  <link rel="stylesheet" href="../css/i18n.css">
+  <link rel="stylesheet" href="../css/polish.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo">🎬 MovieTix <span class="admin-tag">ADMIN</span></div>
+    <nav class="nav"><span class="user-greeting" id="adminGreeting"></span><a href="#" id="adminLogoutLink">Logout</a></nav>
+  </header>
+
+  <main class="admin-main">
+    <div class="admin-header">
+      <div><h1>Manage Movies 🎬</h1><p>Add, edit, or remove movies from the system</p></div>
+      <button class="admin-btn" id="addMovieBtn">+ Add New Movie</button>
+    </div>
+
+    <div class="admin-tabs">
+      <a href="admin-dashboard.html" class="admin-tab">📊 Dashboard</a>
+      <a href="admin-movies.html" class="admin-tab active">🎬 Movies</a>
+      <a href="admin-theaters.html" class="admin-tab">🏢 Theaters</a>
+      <a href="admin-bookings.html" class="admin-tab">🎟️ Bookings</a>
+      <a href="admin-users.html" class="admin-tab">👥 Users</a>
+    </div>
+
+    <div class="admin-table-container">
+      <div class="admin-table-header">
+        <h2>All Movies (<span id="movieCount">0</span>)</h2>
+        <input type="text" id="movieSearch" placeholder="🔍 Search movies..." style="padding: 0.6rem 1rem; border: 1px solid #ddd; border-radius: 8px; font-size: 0.9rem;">
+      </div>
+      <table class="admin-table" id="moviesTable">
+        <thead><tr><th>Poster</th><th>Title</th><th>Genre</th><th>Language</th><th>Duration</th><th>Rating</th><th>Actions</th></tr></thead>
+        <tbody id="moviesTableBody"></tbody>
+      </table>
+      <div id="noMovies" class="admin-empty" style="display:none;"><div class="admin-empty-icon">🎬</div><p>No movies found.</p></div>
+    </div>
+  </main>
+
+  <div id="movieModal" class="admin-modal" style="display:none;">
+    <div class="admin-modal-box">
+      <button class="admin-modal-close" id="movieModalClose">✕</button>
+      <h2 id="movieModalTitle">Add New Movie</h2>
+      <form id="movieForm">
+        <div class="form-group"><label for="movieFormTitle">Title *</label><input type="text" id="movieFormTitle" placeholder="e.g., Avengers: Endgame" required></div>
+        <div class="form-row">
+          <div class="form-group"><label for="movieFormGenre">Genre *</label><select id="movieFormGenre" required><option value="">Select genre...</option><option value="Action">Action</option><option value="Comedy">Comedy</option><option value="Drama">Drama</option><option value="Sci-Fi">Sci-Fi</option><option value="Thriller">Thriller</option><option value="Animation">Animation</option><option value="Romance">Romance</option></select></div>
+          <div class="form-group"><label for="movieFormLanguage">Language *</label><select id="movieFormLanguage" required><option value="">Select language...</option><option value="English">English</option><option value="Tamil">Tamil</option><option value="Hindi">Hindi</option><option value="Telugu">Telugu</option><option value="Malayalam">Malayalam</option></select></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label for="movieFormDuration">Duration (minutes) *</label><input type="number" id="movieFormDuration" min="1" max="300" placeholder="e.g., 180" required></div>
+          <div class="form-group"><label for="movieFormRating">Rating (0-10) *</label><input type="number" id="movieFormRating" min="0" max="10" step="0.1" placeholder="e.g., 8.5" required></div>
+        </div>
+        <div class="form-group"><label for="movieFormPoster">Poster Emoji *</label><input type="text" id="movieFormPoster" placeholder="e.g., 🎬" maxlength="4" required></div>
+        <div class="form-group"><label for="movieFormDescription">Description *</label><textarea id="movieFormDescription" rows="3" placeholder="Short synopsis of the movie..." required></textarea></div>
+        <div class="admin-modal-actions">
+          <button type="button" class="admin-btn secondary" id="movieFormCancel">Cancel</button>
+          <button type="submit" class="admin-btn" id="movieFormSubmit">Save Movie</button>
+        </div>
+        <p id="movieFormMessage" class="form-message" style="text-align:center; margin-top:0.8rem; font-weight:600;"></p>
+      </form>
+    </div>
+  </div>
+
+  <footer class="footer"><p>&copy; 2026 Movie Ticket Booking System. All rights reserved.</p></footer>
+
+  <script src="../js/movieData.js"></script>
+  <script src="../js/admin-guard.js"></script>
+  <script src="../js/admin-movies.js"></script>
+  <script src="../js/polish.js"></script>
+</body>
+</html>

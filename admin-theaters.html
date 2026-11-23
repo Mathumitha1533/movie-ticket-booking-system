@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Theaters — Admin Panel</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/admin.css">
+  <link rel="stylesheet" href="../css/i18n.css">
+  <link rel="stylesheet" href="../css/polish.css">
+</head>
+<body>
+  <header class="header"><div class="logo">🎬 MovieTix <span class="admin-tag">ADMIN</span></div><nav class="nav"><span class="user-greeting" id="adminGreeting"></span><a href="#" id="adminLogoutLink">Logout</a></nav></header>
+  <main class="admin-main">
+    <div class="admin-header"><div><h1>Manage Theaters 🏢</h1><p>Add, edit, or remove theaters and their screens</p></div><button class="admin-btn" id="addTheaterBtn">+ Add New Theater</button></div>
+    <div class="admin-tabs">
+      <a href="admin-dashboard.html" class="admin-tab">📊 Dashboard</a><a href="admin-movies.html" class="admin-tab">🎬 Movies</a>
+      <a href="admin-theaters.html" class="admin-tab active">🏢 Theaters</a><a href="admin-bookings.html" class="admin-tab">🎟️ Bookings</a>
+      <a href="admin-users.html" class="admin-tab">👥 Users</a>
+    </div>
+    <div class="admin-stats-grid">
+      <div class="admin-stat-card"><div class="admin-stat-icon">🏢</div><div class="admin-stat-value" id="statTotalTheaters">0</div><div class="admin-stat-label">Total Theaters</div></div>
+      <div class="admin-stat-card blue"><div class="admin-stat-icon">🎥</div><div class="admin-stat-value" id="statTotalScreens">0</div><div class="admin-stat-label">Total Screens</div></div>
+      <div class="admin-stat-card green"><div class="admin-stat-icon">🕐</div><div class="admin-stat-value" id="statTotalShows">0</div><div class="admin-stat-label">Total Showtimes</div></div>
+    </div>
+    <div class="admin-table-container">
+      <div class="admin-table-header"><h2>All Theaters (<span id="theaterCount">0</span>)</h2><input type="text" id="theaterSearch" placeholder="🔍 Search by name..." style="padding: 0.6rem 1rem; border: 1px solid #ddd; border-radius: 8px; font-size: 0.9rem;"></div>
+      <div id="theatersList" class="theaters-list"></div>
+      <div id="noTheaters" class="admin-empty" style="display:none;"><div class="admin-empty-icon">🏢</div><p>No theaters yet.</p></div>
+    </div>
+  </main>
+  <div id="theaterModal" class="admin-modal" style="display:none;">
+    <div class="admin-modal-box">
+      <button class="admin-modal-close" id="theaterModalClose">✕</button><h2 id="theaterModalTitle">Add New Theater</h2>
+      <form id="theaterForm">
+        <div class="form-group"><label for="theaterName">Theater Name *</label><input type="text" id="theaterName" placeholder="e.g., PVR Cinemas" required></div>
+        <div class="form-group"><label for="theaterLocation">Location *</label><input type="text" id="theaterLocation" placeholder="e.g., Samayapuram, Trichy" required></div>
+        <div class="admin-modal-actions"><button type="button" class="admin-btn secondary" id="theaterFormCancel">Cancel</button><button type="submit" class="admin-btn" id="theaterFormSubmit">Save Theater</button></div>
+        <p id="theaterFormMessage" class="form-message" style="text-align:center; margin-top:0.8rem; font-weight:600;"></p>
+      </form>
+    </div>
+  </div>
+  <div id="screensModal" class="admin-modal" style="display:none;">
+    <div class="admin-modal-box" style="max-width: 700px;">
+      <button class="admin-modal-close" id="screensModalClose">✕</button><h2 id="screensModalTitle">Manage Screens</h2><p id="screensModalSubtitle" style="color:#777; font-size:0.9rem; margin-bottom:1.2rem;"></p>
+      <div id="screensList" class="screens-list"></div>
+      <div class="screens-add-row"><input type="text" id="newScreenName" placeholder="New screen name e.g., Screen 3" maxlength="30"><button type="button" id="addScreenBtn" class="admin-btn">+ Add Screen</button></div>
+      <div class="admin-modal-actions"><button type="button" class="admin-btn secondary" id="screensDoneBtn">Done</button></div>
+    </div>
+  </div>
+  <footer class="footer"><p>&copy; 2026 Movie Ticket Booking System. All rights reserved.</p></footer>
+  <script src="../js/admin-guard.js"></script>
+  <script src="../js/admin-theaters.js"></script>
+  <script src="../js/polish.js"></script>
+</body>
+</html>

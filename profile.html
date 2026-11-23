@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Profile — Movie Ticket Booking System</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/profile.css">
+  <link rel="stylesheet" href="../css/i18n.css">
+  <link rel="stylesheet" href="../css/polish.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo">🎬 MovieTix</div>
+    <nav class="nav">
+      <a href="../index.html" data-i18n="common.home">Home</a>
+      <a href="movies.html" data-i18n="common.movies">Movies</a>
+      <a href="login.html" id="loginLink" data-i18n="common.login">Login</a>
+      <a href="register.html" id="registerLink" data-i18n="common.register">Register</a>
+      <a href="#" id="logoutLink" style="display:none;" data-i18n="common.logout">Logout</a>
+      <span id="userGreeting" class="user-greeting"></span>
+    </nav>
+  </header>
+
+  <main class="profile-main">
+    <a href="movies.html" class="back-link" data-i18n="movies.backToHome">← Back to Movies</a>
+    <h1 class="page-title" data-i18n="profile.title">My Profile 👤</h1>
+    <p class="page-subtitle" data-i18n="profile.subtitle">Manage your account information</p>
+
+    <div class="profile-layout">
+      <div class="profile-card overview-card">
+        <div class="avatar" id="userAvatar">U</div>
+        <h2 id="overviewName">User</h2>
+        <p class="overview-email" id="overviewEmail">user@example.com</p>
+        <p class="overview-since" id="overviewSince">Member since —</p>
+        <div class="overview-stats">
+          <div class="stat-box"><span class="stat-value" id="statBookings">0</span><span class="stat-label" data-i18n="history.totalBookings">Bookings</span></div>
+          <div class="stat-box"><span class="stat-value" id="statTickets">0</span><span class="stat-label" data-i18n="history.ticketsBooked">Tickets</span></div>
+          <div class="stat-box"><span class="stat-value" id="statSpent">₹0</span><span class="stat-label" data-i18n="history.totalSpent">Spent</span></div>
+        </div>
+        <a href="booking-history.html" class="btn-primary btn-block" data-i18n="history.title">View My Bookings</a>
+      </div>
+
+      <div class="profile-forms">
+        <div class="profile-card">
+          <h3 class="card-title" data-i18n="profile.personalInfo">Personal Information</h3>
+          <form id="personalInfoForm" class="profile-form">
+            <div class="form-group"><label for="nameInput" data-i18n="auth.fullName">Full Name</label><input type="text" id="nameInput" placeholder="Your full name" required></div>
+            <div class="form-group"><label for="emailInput" data-i18n="auth.email">Email Address</label><input type="email" id="emailInput" placeholder="you@example.com" required></div>
+            <div class="form-group"><label for="phoneInput" data-i18n="auth.phone">Phone Number</label><input type="tel" id="phoneInput" placeholder="10-digit mobile number" required></div>
+            <button type="submit" class="btn-primary" data-i18n="profile.saveChanges">Save Changes</button>
+            <p id="personalMessage" class="form-message"></p>
+          </form>
+        </div>
+
+        <div class="profile-card password-card">
+          <div class="password-card-header">
+            <div>
+              <h3 class="card-title" style="margin-bottom:0.2rem; padding-bottom:0;" data-i18n="profile.password">🔒 Password & Security</h3>
+              <p class="password-hint" data-i18n="profile.passwordHint">Change your password if you think it may be compromised.</p>
+            </div>
+            <button type="button" id="togglePasswordBtn" class="toggle-password-btn" data-i18n="profile.changePassword">Change Password</button>
+          </div>
+          <form id="passwordForm" class="profile-form password-form" style="display:none;">
+            <div class="form-group"><label for="currentPassword" data-i18n="profile.currentPassword">Current Password</label><input type="password" id="currentPassword" placeholder="Enter current password" required></div>
+            <div class="form-group"><label for="newPassword" data-i18n="profile.newPassword">New Password</label><input type="password" id="newPassword" placeholder="Min 6 characters" required></div>
+            <div class="form-group"><label for="confirmNewPassword" data-i18n="profile.confirmNewPassword">Confirm New Password</label><input type="password" id="confirmNewPassword" placeholder="Re-enter new password" required></div>
+            <div style="display:flex; gap:0.8rem;">
+              <button type="submit" class="btn-primary" style="flex:1;" data-i18n="profile.updatePassword">Update Password</button>
+              <button type="button" id="cancelPasswordBtn" class="btn-secondary-light" style="flex:1;" data-i18n="profile.cancel">Cancel</button>
+            </div>
+            <p id="passwordMessage" class="form-message"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p data-i18n="home.footer">&copy; 2026 Movie Ticket Booking System. All rights reserved.</p>
+  </footer>
+
+  <script src="../js/i18n.js"></script>
+  <script src="../js/header.js"></script>
+  <script src="../js/profile.js"></script>
+  <script src="../js/polish.js"></script>
+</body>
+</html>

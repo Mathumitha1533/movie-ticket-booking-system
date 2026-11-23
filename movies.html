@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movies — Movie Ticket Booking System</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/movies.css">
+  <link rel="stylesheet" href="../css/i18n.css">
+  <link rel="stylesheet" href="../css/polish.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo">🎬 MovieTix</div>
+    <nav class="nav">
+      <a href="../index.html" data-i18n="common.home">Home</a>
+      <a href="movies.html" data-i18n="common.movies">Movies</a>
+      <a href="login.html" id="loginLink" data-i18n="common.login">Login</a>
+      <a href="register.html" id="registerLink" data-i18n="common.register">Register</a>
+      <a href="#" id="logoutLink" style="display:none;" data-i18n="common.logout">Logout</a>
+      <span id="userGreeting" class="user-greeting"></span>
+    </nav>
+  </header>
+
+  <main class="movies-main">
+    <!-- Using common.back to fix the text -->
+    <a href="../index.html" class="back-link" data-i18n="common.back">← Back to Home</a>
+    
+    <h1 class="page-title" data-i18n="movies.title">Now Showing 🎥</h1>
+    <p class="page-subtitle" data-i18n="movies.subtitle">Browse and book your favourite movies</p>
+
+    <div class="filter-bar">
+      <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search movies by title..." data-i18n-placeholder="movies.searchPlaceholder">
+      <select id="genreFilter" class="filter-select">
+        <option value="" data-i18n="movies.allGenres">All Genres</option>
+        <option value="Action">Action</option>
+        <option value="Comedy">Comedy</option>
+        <option value="Drama">Drama</option>
+        <option value="Sci-Fi">Sci-Fi</option>
+        <option value="Thriller">Thriller</option>
+        <option value="Animation">Animation</option>
+      </select>
+      <select id="languageFilter" class="filter-select">
+        <option value="" data-i18n="movies.allLanguages">All Languages</option>
+        <option value="English">English</option>
+        <option value="Tamil">Tamil</option>
+        <option value="Hindi">Hindi</option>
+        <option value="Telugu">Telugu</option>
+      </select>
+    </div>
+
+    <div id="movieGrid" class="movie-grid"></div>
+    <p id="noResults" class="no-results" style="display:none;" data-i18n="movies.noResults">😕 No movies match your search. Try a different filter.</p>
+  </main>
+
+  <footer class="footer">
+    <p data-i18n="home.footer">&copy; 2026 Movie Ticket Booking System. All rights reserved.</p>
+  </footer>
+
+  <script src="../js/i18n.js"></script>
+  <script src="../js/movieData.js"></script>
+  <script src="../js/header.js"></script>
+  <script src="../js/movies.js"></script>
+  <script src="../js/polish.js"></script>
+</body>
+</html>
