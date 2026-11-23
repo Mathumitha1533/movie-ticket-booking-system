@@ -1,0 +1,23 @@
+body { animation: pageFadeIn 0.35s ease-out; }
+@keyframes pageFadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+button:active, .btn-primary:active, .btn-secondary:active, .admin-btn:active, .view-ticket-btn:active, .rate-movie-btn:active, .cancel-booking-btn:active, .btn-hero-primary:active, .btn-hero-secondary:active { transform: scale(0.97); }
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px solid #e94560; outline-offset: 2px; }
+.booking-card, .movie-card, .admin-stat-card, .stat-item { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.scroll-top-btn { position: fixed; bottom: 24px; right: 24px; width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #e94560, #ff5c8a); color: white; border: none; font-size: 1.2rem; cursor: pointer; box-shadow: 0 8px 24px rgba(233, 69, 96, 0.5); display: none; align-items: center; justify-content: center; z-index: 999; transition: transform 0.25s, box-shadow 0.25s, opacity 0.25s; opacity: 0; }
+.scroll-top-btn.visible { display: flex; opacity: 1; }
+.scroll-top-btn:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(233, 69, 96, 0.7); }
+.toast-container { position: fixed; top: 90px; right: 24px; z-index: 10000; display: flex; flex-direction: column; gap: 0.6rem; pointer-events: none; }
+.toast { background: white; color: #1a1a2e; padding: 1rem 1.3rem; border-radius: 12px; box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15); display: flex; align-items: center; gap: 0.7rem; font-weight: 600; font-size: 0.92rem; min-width: 260px; max-width: 380px; pointer-events: auto; border-left: 4px solid #e94560; animation: toastSlideIn 0.35s ease-out; position: relative; overflow: hidden; }
+.toast::after { content: ''; position: absolute; bottom: 0; left: 0; height: 3px; background: #e94560; width: 100%; animation: toastProgress 3s linear forwards; }
+@keyframes toastSlideIn { from { transform: translateX(120%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes toastSlideOut { from { transform: translateX(0); opacity: 1; } to { transform: translateX(120%); opacity: 0; } }
+@keyframes toastProgress { from { width: 100%; } to { width: 0; } }
+.toast.hiding { animation: toastSlideOut 0.3s ease-in forwards; }
+.toast-icon { font-size: 1.3rem; flex-shrink: 0; }
+.toast.success { border-left-color: #4caf50; } .toast.success::after { background: #4caf50; }
+.toast.error { border-left-color: #c62828; } .toast.error::after { background: #c62828; }
+.toast.info { border-left-color: #2196f3; } .toast.info::after { background: #2196f3; }
+.toast.warning { border-left-color: #ff9800; } .toast.warning::after { background: #ff9800; }
+.fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade-up.in-view { opacity: 1; transform: translateY(0); }
+@media (max-width: 600px) { .toast-container { right: 12px; left: 12px; top: 80px; } .toast { min-width: auto; max-width: none; width: 100%; } .scroll-top-btn { bottom: 16px; right: 16px; width: 42px; height: 42px; } }

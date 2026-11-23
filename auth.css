@@ -1,0 +1,19 @@
+.auth-container { flex: 1; display: flex; align-items: center; justify-content: center; padding: 3rem 1rem; }
+.auth-card { background: #ffffff; padding: 2.5rem; border-radius: 12px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); width: 100%; max-width: 420px; }
+.auth-card h2 { font-size: 1.8rem; color: #1a1a2e; margin-bottom: 0.5rem; text-align: center; }
+.auth-subtitle { text-align: center; color: #777; margin-bottom: 2rem; font-size: 0.95rem; }
+.auth-form { display: flex; flex-direction: column; gap: 1.2rem; }
+.form-group { display: flex; flex-direction: column; }
+.form-group label { font-size: 0.9rem; font-weight: 600; color: #333; margin-bottom: 0.4rem; }
+.form-group input { padding: 0.75rem 1rem; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; transition: border-color 0.3s, box-shadow 0.3s; }
+.form-group input:focus { outline: none; border-color: #e94560; box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.15); }
+.btn-block { width: 100%; margin-top: 0.5rem; }
+.form-message { text-align: center; font-weight: 600; font-size: 0.95rem; margin-top: 0.5rem; min-height: 1.2rem; }
+.form-message.success { color: #2e7d32; }
+.form-message.error { color: #c62828; }
+.auth-footer-text { text-align: center; margin-top: 1.5rem; font-size: 0.9rem; color: #555; }
+.auth-footer-text a { color: #e94560; text-decoration: none; font-weight: 600; }
+.auth-footer-text a:hover { text-decoration: underline; }
+.demo-credentials { margin-top: 1.5rem; padding: 1rem; background: #f0f8ff; border-left: 4px solid #2196f3; border-radius: 8px; font-size: 0.85rem; color: #1565c0; }
+.demo-credentials p { margin: 0.2rem 0; }
+.admin-tag { background: #e94560; color: white; font-size: 0.65rem; font-weight: 800; padding: 0.2rem 0.5rem; border-radius: 4px; margin-left: 0.5rem; letter-spacing: 1px; vertical-align: middle; }

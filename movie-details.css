@@ -1,0 +1,51 @@
+.details-main { flex: 1; padding: 2rem; max-width: 1100px; margin: 0 auto; width: 100%; }
+.movie-hero { display: flex; gap: 2rem; background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); margin-bottom: 2.5rem; flex-wrap: wrap; }
+.hero-poster { width: 200px; height: 280px; border-radius: 12px; background: #1a1a2e; display: flex; align-items: center; justify-content: center; font-size: 5rem; color: rgba(255, 255, 255, 0.35); flex-shrink: 0; overflow: hidden; padding: 0; }
+.hero-poster img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 12px; }
+.hero-info { flex: 1; min-width: 260px; }
+.hero-info h1 { font-size: 2rem; color: #1a1a2e; margin-bottom: 0.5rem; }
+.hero-meta { color: #666; font-size: 1rem; margin-bottom: 0.4rem; }
+.hero-rating { color: #f5a623; font-weight: 700; font-size: 1rem; margin-bottom: 1rem; }
+.hero-desc { color: #444; line-height: 1.6; font-size: 0.98rem; }
+.section-title { font-size: 1.5rem; color: #1a1a2e; margin-bottom: 1.2rem; }
+.date-selector { display: flex; gap: 0.6rem; overflow-x: auto; padding-bottom: 0.5rem; margin-bottom: 1.5rem; scrollbar-width: thin; }
+.date-tab { flex-shrink: 0; min-width: 90px; padding: 0.7rem 1rem; background: white; border: 2px solid #e0e0e0; border-radius: 10px; cursor: pointer; text-align: center; transition: all 0.2s; font-family: inherit; }
+.date-tab:hover { border-color: #e94560; }
+.date-tab.selected { background: #e94560; border-color: #e94560; color: white; }
+.date-tab .date-day { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 0.2rem; opacity: 0.85; }
+.date-tab .date-num { font-size: 1.3rem; font-weight: 800; display: block; line-height: 1; margin-bottom: 0.2rem; }
+.date-tab .date-month { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; opacity: 0.75; }
+.date-tab.selected .date-day, .date-tab.selected .date-month { opacity: 1; }
+.date-tab.more-dates-tab { border: 2px dashed #e94560; background: #fff8fa; color: #e94560; }
+.date-tab.more-dates-tab:hover { background: #ffe5ea; }
+.date-tab.more-dates-tab .date-num { font-size: 1.4rem; line-height: 1; }
+.date-tab.more-dates-tab .date-day, .date-tab.more-dates-tab .date-month { color: #e94560; opacity: 1; }
+.theater-list { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; min-height: 100px; }
+.theater-card { background: white; padding: 1.2rem 1.5rem; border-radius: 12px; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06); border: 1px solid #eee; }
+.theater-name { font-size: 1.1rem; font-weight: 700; color: #1a1a2e; margin-bottom: 0.3rem; }
+.theater-location { font-size: 0.9rem; color: #777; margin-bottom: 0.9rem; }
+.show-times { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.show-time-btn { padding: 0.55rem 1rem; border: 1px solid #e94560; background: white; color: #e94560; border-radius: 8px; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: background 0.2s, color 0.2s; font-family: inherit; }
+.show-time-btn:hover { background: #ffe5ea; }
+.show-time-btn.selected { background: #e94560; color: white; }
+.reviews-section { margin-bottom: 6rem; padding-top: 2rem; border-top: 1px solid #eee; }
+.reviews-header { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+.reviews-header .section-title { margin-bottom: 0; }
+.avg-rating-box { display: flex; align-items: center; gap: 0.7rem; background: white; padding: 0.6rem 1rem; border-radius: 10px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06); }
+.avg-number { font-size: 1.6rem; font-weight: 800; color: #1a1a2e; }
+.avg-stars { color: #f5a623; font-size: 1.1rem; letter-spacing: 2px; }
+.avg-count { font-size: 0.8rem; color: #777; font-weight: 600; }
+.reviews-list { display: flex; flex-direction: column; gap: 1rem; }
+.review-item { background: white; padding: 1.2rem 1.5rem; border-radius: 12px; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05); border-left: 4px solid #f5a623; }
+.review-item-header { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 0.8rem; }
+.review-avatar { width: 42px; height: 42px; border-radius: 50%; background: linear-gradient(135deg, #e94560, #c73650); color: white; font-weight: 800; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.review-user-info { flex: 1; }
+.review-user-name { font-weight: 700; color: #1a1a2e; font-size: 0.95rem; }
+.review-date { font-size: 0.78rem; color: #999; }
+.review-stars-small { color: #f5a623; font-size: 1rem; letter-spacing: 2px; }
+.review-text { color: #444; font-size: 0.95rem; line-height: 1.6; font-style: italic; }
+.review-text.empty { color: #aaa; font-style: normal; }
+.no-reviews { text-align: center; color: #999; font-size: 0.95rem; padding: 1.5rem; background: #fafafa; border-radius: 10px; }
+.continue-bar { position: sticky; bottom: 0; left: 0; right: 0; background: white; border-top: 1px solid #eee; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05); border-radius: 12px 12px 0 0; flex-wrap: wrap; }
+.selected-info { font-size: 0.95rem; color: #555; font-weight: 600; }
+#continueBtn:disabled { background: #ccc; cursor: not-allowed; }
