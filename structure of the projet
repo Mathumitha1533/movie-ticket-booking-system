@@ -1,0 +1,62 @@
+movie-ticket-booking-system/
+└── frontend/
+    ├── index.html
+    ├── css/
+    │   ├── style.css
+    │   ├── home.css
+    │   ├── auth.css
+    │   ├── movies.css
+    │   ├── movie-details.css
+    │   ├── seat-selection.css
+    │   ├── admin.css
+    │   ├── booking-confirmation.css
+    │   ├── booking-history.css
+    │   ├── i18n.css
+    │   ├── payment.css
+    │   ├── polish.css
+    │   ├── profile.css
+    │   └── review.css
+    ├── js/
+    │   ├── script.js
+    │   ├── auth.js
+    │   ├── movies.js
+    │   ├── movie-details.js
+    │   ├── seat-selection.js
+    │   ├── admin-dashboard.js
+    │   ├── admin-booking-view.js
+    │   ├── admin-bookings.js
+    │   ├── admin-guard.js
+    │   ├── admin-login.js
+    │   ├── admin-movies.js
+    │   ├── admin-theaters.js
+    │   ├── admin-users.js
+    │   ├── booking-confirmation.js
+    │   ├── booking-history.js
+    │   ├── header.js
+    │   ├── home.js
+    │   ├── i18n.js
+    │   ├── movieData.js
+    │   ├── payment.js
+    │   ├── polish.js
+    │   ├── profile.js
+    │   └── review.js
+    ├── assets/
+    │   └── (all your .jpg / .png image files go here)
+    └── pages/
+        ├── login.html
+        ├── register.html
+        ├── movies.html
+        ├── movie-details.html
+        ├── seat-selection.html
+        ├── admin-dashboard.html
+        ├── admin-booking-view.html
+        ├── admin-bookings.html
+        ├── admin-login.html
+        ├── admin-movies.html
+        ├── admin-theaters.html
+        ├── admin-users.html
+        ├── booking-confirmation.html
+        ├── booking-history.html
+        ├── payment.html
+        ├── profile.html
+        └── review.html
