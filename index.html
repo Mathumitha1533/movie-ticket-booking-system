@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MovieTix — Book Your Movie Tickets Online</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/i18n.css">
+  <link rel="stylesheet" href="css/polish.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo">🎬 MovieTix</div>
+    <nav class="nav">
+      <a href="index.html" data-i18n="common.home">Home</a>
+      <a href="pages/movies.html" data-i18n="common.movies">Movies</a>
+      <a href="pages/login.html" id="loginLink" data-i18n="common.login">Login</a>
+      <a href="pages/register.html" id="registerLink" data-i18n="common.register">Register</a>
+      <a href="#" id="logoutLink" style="display:none;" data-i18n="common.logout">Logout</a>
+      <span id="userGreeting" class="user-greeting"></span>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-bg-glow"></div>
+    <div class="hero-content">
+      <span class="hero-badge" data-i18n="home.badge">🎟️ Now Booking — All Theatres</span>
+      <h1 class="hero-title">
+        <span data-i18n="home.heroTitle1">Book Your</span>
+        <span class="hero-gradient" data-i18n="home.heroTitleGradient">Movie Tickets</span><br>
+        <span data-i18n="home.heroTitle2">Quick. Easy. Secure.</span>
+      </h1>
+      <p class="hero-subtitle" data-i18n="home.heroSubtitle">Skip the queue. Pick your seats. Watch your favourite blockbusters — from the comfort of your phone.</p>
+      <div class="hero-actions">
+        <a href="pages/movies.html" class="btn-hero-primary" data-i18n="home.browseMovies">🎬 Browse Movies</a>
+        <a href="pages/register.html" class="btn-hero-secondary" data-i18n="home.createAccount">Create Account</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="hero-stat-value">10+</span><span class="hero-stat-label" data-i18n="home.statMovies">Movies</span></div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat"><span class="hero-stat-value">3</span><span class="hero-stat-label" data-i18n="home.statTheatres">Theatres</span></div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat"><span class="hero-stat-value">100%</span><span class="hero-stat-label" data-i18n="home.statSecure">Secure</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="poster-stack">
+        <div class="poster-card p1">🚀</div>
+        <div class="poster-card p2">🔥</div>
+        <div class="poster-card p3">🎬</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="genres-section">
+    <div class="section-header">
+      <h2><span data-i18n="home.genreHeading">Browse by</span> <span class="gradient-text" data-i18n="home.genreHeadingGradient">Genre</span></h2>
+      <p data-i18n="home.genreSubtitle">Find the perfect mood for your movie night</p>
+    </div>
+    <div class="genre-grid">
+      <a href="pages/movies.html?genre=Action" class="genre-tile action"><span class="genre-emoji">💥</span><span class="genre-name">Action</span></a>
+      <a href="pages/movies.html?genre=Comedy" class="genre-tile comedy"><span class="genre-emoji">😂</span><span class="genre-name">Comedy</span></a>
+      <a href="pages/movies.html?genre=Drama" class="genre-tile drama"><span class="genre-emoji">🎭</span><span class="genre-name">Drama</span></a>
+      <a href="pages/movies.html?genre=Sci-Fi" class="genre-tile scifi"><span class="genre-emoji">🚀</span><span class="genre-name">Sci-Fi</span></a>
+      <a href="pages/movies.html?genre=Thriller" class="genre-tile thriller"><span class="genre-emoji">🕵️</span><span class="genre-name">Thriller</span></a>
+      <a href="pages/movies.html?genre=Animation" class="genre-tile animation"><span class="genre-emoji">🧸</span><span class="genre-name">Animation</span></a>
+    </div>
+  </section>
+
+  <section class="featured-section">
+    <div class="section-header">
+      <h2><span data-i18n="home.nowShowingHeading">Now</span> <span class="gradient-text" data-i18n="home.nowShowingGradient">Showing</span></h2>
+      <p data-i18n="home.nowShowingSubtitle">Top picks playing in theatres right now</p>
+    </div>
+    <div id="featuredMovies" class="featured-grid"></div>
+    <div class="see-all-wrap"><a href="pages/movies.html" class="see-all-btn" data-i18n="home.seeAll">See All Movies →</a></div>
+  </section>
+
+  <section class="why-section">
+    <div class="section-header">
+      <h2><span data-i18n="home.whyHeading">Why</span> <span class="gradient-text" data-i18n="home.whyHeadingGradient">MovieTix</span> <span data-i18n="home.whyHeadingSuffix">?</span></h2>
+      <p data-i18n="home.whySubtitle">Built for the way you watch movies</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card"><div class="why-icon">⚡</div><h3 data-i18n="home.why1Title">Instant Booking</h3><p data-i18n="home.why1Text">Pick your movie, seat, and pay in under 60 seconds.</p></div>
+      <div class="why-card"><div class="why-icon">🔒</div><h3 data-i18n="home.why2Title">Secure Payments</h3><p data-i18n="home.why2Text">UPI, cards, and net banking with bank-grade encryption.</p></div>
+      <div class="why-card"><div class="why-icon">🎟️</div><h3 data-i18n="home.why3Title">QR E-Tickets</h3><p data-i18n="home.why3Text">No paper. Just scan the QR code at the entrance.</p></div>
+      <div class="why-card"><div class="why-icon">💸</div><h3 data-i18n="home.why4Title">Easy Refunds</h3><p data-i18n="home.why4Text">Cancel anytime. Get up to 100% back automatically.</p></div>
+      <div class="why-card"><div class="why-icon">💺</div><h3 data-i18n="home.why5Title">Live Seat Map</h3><p data-i18n="home.why5Text">See exactly which seats are free — no guesswork.</p></div>
+      <div class="why-card"><div class="why-icon">⭐</div><h3 data-i18n="home.why6Title">Real Reviews</h3><p data-i18n="home.why6Text">Read genuine ratings from verified ticket holders.</p></div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-card">
+      <div class="cta-glow"></div>
+      <h2 data-i18n="home.ctaHeading">Ready for the show?</h2>
+      <p data-i18n="home.ctaSubtitle">Join thousands of movie lovers booking with MovieTix every day.</p>
+      <a href="pages/movies.html" class="btn-hero-primary" data-i18n="home.ctaButton">🎬 Start Booking</a>
+    </div>
+  </section>
+
+  <footer class="footer"><p data-i18n="home.footer">&copy; 2026 Movie Ticket Booking System. All rights reserved.</p></footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/movieData.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/home.js"></script>
+  <script src="js/polish.js"></script>
+</body>
+</html>
